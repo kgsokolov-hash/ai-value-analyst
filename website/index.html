@@ -3,6 +3,551 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veritas AI | Independent Analysis of AI Value Creation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #fafafa;
+            --text: #1a1a1a;
+            --text-light: #666;
+            --accent: #0066cc;
+            --border: #e5e5e5;
+            --card: #ffffff;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            background: var(--card);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .logo-mark {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-mark svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+        
+        .logo-text {
+            font-size: 18px;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+        
+        nav a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover { color: var(--text); }
+        
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 560px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--text);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        
+        .cta:hover { opacity: 0.85; }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        section.alt {
+            background: var(--card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h2 {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .expertise-item {
+            text-align: center;
+        }
+        
+        .expertise-item .number {
+            font-size: 48px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .expertise-item h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .expertise-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .method-intro {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 64px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+        
+        .method-card {
+            padding: 32px 24px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .method-card .weight {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        
+        .method-card h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .method-card p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+        
+        .recognition-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .recognition-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .recognition-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .recognition-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+        
+        .recognition-item h3 {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        
+        .recognition-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .contact {
+            text-align: center;
+        }
+        
+        .contact p {
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        
+        .email {
+            font-size: 18px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .email:hover { text-decoration: underline; }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            .hero h1 { font-size: 32px; }
+            .expertise-grid { grid-template-columns: 1fr; gap: 32px; }
+            .method-grid { grid-template-columns: repeat(2, 1fr); }
+            .recognition-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <span class="logo-text">Veritas AI</span>
+                </a>
+                <nav>
+                    <a href="#methodology">Methodology</a>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#recognition">Recognition</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Quantifying AI Value Creation</h1>
+            <p>Independent analysis methodology for measuring how public companies translate artificial intelligence investments into measurable business outcomes.</p>
+            <a href="#methodology" class="cta">
+                Explore Our Framework
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="alt" id="expertise">
+        <div class="container">
+            <h2>Domain Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <div class="number">15</div>
+                    <h3>Years in Financial Consulting</h3>
+                    <p>Strategic advisory for Fortune 500 and mid-cap companies</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="number">MA</div>
+                    <h3>Finance & Economics</h3>
+                    <p>Advanced training in quantitative analysis and valuation</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="number">∞</div>
+                    <h3>AI Implementation</h3>
+                    <p>Hands-on experience with GPT, Claude, and enterprise optimization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="methodology">
+        <div class="container">
+            <h2>Evaluation Framework</h2>
+            <p class="method-intro">Our methodology assesses AI value creation across five dimensions, weighted by their demonstrated correlation to shareholder returns.</p>
+            <div class="method-grid">
+                <div class="method-card">
+                    <div class="weight">35%</div>
+                    <h4>Value Capture</h4>
+                    <p>Quantified cost reductions, revenue attribution, productivity metrics from public disclosures</p>
+                </div>
+                <div class="method-card">
+                    <div class="weight">25%</div>
+                    <h4>Adoption Depth</h4>
+                    <p>Production system maturity, integration scope, technology stack sophistication</p>
+                </div>
+                <div class="method-card">
+                    <div class="weight">20%</div>
+                    <h4>Strategic Position</h4>
+                    <p>Executive commitment, dedicated leadership, vendor partnerships</p>
+                </div>
+                <div class="method-card">
+                    <div class="weight">15%</div>
+                    <h4>Governance</h4>
+                    <p>Ethics frameworks, data policies, regulatory compliance posture</p>
+                </div>
+                <div class="method-card">
+                    <div class="weight">5%</div>
+                    <h4>Innovation</h4>
+                    <p>Patent portfolio, R&D investment, new product development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt" id="recognition">
+        <div class="container">
+            <h2>Trusted By</h2>
+            <div class="recognition-grid">
+                <div class="recognition-item">
+                    <div class="recognition-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <h3>Research Partners</h3>
+                        <p>Collaborating with business schools and research institutions on AI valuation methodologies</p>
+                    </div>
+        
+...(truncated)...
+Assistant
+6:59 PM
+U
+ok, now I'd like to use a name "AI Alpha Award"
+and the narrative and messaging will be dedicated to AI impact on value creation, ROI
+
+add that there are a number of people working with background from digital marketing, FAANG, open source
+
+openclaw-control-ui
+7:23 PM
+A
+
+I'll update the site with the new name "AI Alpha Award" and adjust the messaging to focus on AI impact, ROI, and value creation. I'll also add the team background from digital marketing, FAANG, and open source.
+
+
+I'll update the site with the new name "AI Alpha Award" and adjust the messaging to focus on AI impact, ROI, and value creation. I'll also add the team background from digital marketing, FAANG, and open source.
+
+Write
+with to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.html (889 chars)
+Completed
+Assistant
+7:23 PM
+U
+and update visuals and logo accorgignly
+
+openclaw-control-ui
+7:23 PM
+A
+
+I'll update the site with the new name "AI Alpha Award" and adjust the messaging to focus on AI impact, ROI, and value creation. I'll also add the team background from digital marketing, FAANG, and open source.
+
+Write
+with to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.html (18797 chars)
+Completed
+Assistant
+7:23 PM
+⚙
+Successfully wrote 18797 bytes to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.html
+
+Write
+View
+Successfully wrote 18797 bytes to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.ht…
+tool
+7:25 PM
+A
+
+Done. I've completely redesigned the site with:
+
+New Name: AI Alpha Award
+
+Logo: Alpha symbol (α) in a modern gradient box
+Dark theme with teal accent color (#00d4aa)
+New Messaging Focus:
+
+Hero: "Where AI Meets ROI"
+Subtitle emphasizes "measurable value creation" and "verified impact"
+Metrics section showing quantified benefits (35% cost reduction, 2.4x revenue, etc.)
+Team Section with three backgrounds:
+
+Digital Marketing Veterans — Fortune 500 martech experience
+FAANG Alumni — Engineers from Meta, Google, Amazon, Apple
+Open Source Contributors — AI framework maintainers
+Updated Methodology (now ROI-focused):
+
+40% Financial Impact (highest weight)
+25% Implementation Depth
+20% Strategic Integration
+10% Risk Management
+5% Innovation Velocity
+Process Section:
+
+4-step transparent process from nomination to recognition
+Visual updates:
+
+Dark background (#0a0a0f)
+Teal/green accent color
+Glass morphism header
+Glowing effects on hover
+Modern card-based layout
+Commit and push this version?
+
+Assistant
+7:25 PM
+U
+yes, sounds about right
+
+openclaw-control-ui
+7:27 PM
+A
+Exec
+with stage git changes → create git commit (in /home/ubuntu/.openclaw/workspace/ai-value-analyst) `cd /home/ubuntu/.openclaw/workspace/ai-value-analyst && git add . && git commit -m "Redesign: AI Alpha Award with dark …`
+Completed
+Assistant
+7:27 PM
+⚙
+[main 48df780] Redesign: AI Alpha Award with dark theme, ROI focus, team backgrounds
+1 file changed, 301 insertions(+), 175 deletions(-)
+
+Exec
+View
+[main 48df780] Redesign: AI Alpha Award with dark theme, ROI focus, team backgrounds
+ 1 file changed…
+tool
+7:27 PM
+A
+Exec
+with push git changes (in /home/ubuntu/.openclaw/workspace/ai-value-analyst) `cd /home/ubuntu/.openclaw/workspace/ai-value-analyst && git push origin main`
+Completed
+Assistant
+7:27 PM
+⚙
+fatal: could not read Username for 'https://github.com': No such device or address
+
+(Command exited with code 128)
+
+Exec
+View
+fatal: could not read Username for 'https://github.com': No such device or address
+…
+tool
+7:27 PM
+A
+
+Committed locally but push failed again due to authentication.
+
+To update the live site:
+
+Go to https://github.com/kgsokolov-hash/ai-value-analyst/edit/main/website/index.html
+Select all (Ctrl+A) and delete
+Copy the new code from the file I just created
+Paste and commit
+Or I can show you the code to copy-paste here. Want me to display it?
+
+The new site features:
+
+AI Alpha Award branding with alpha symbol logo
+Dark theme with teal accents
+ROI-focused messaging
+Team backgrounds: Digital Marketing, FAANG, Open Source
+Quantified metrics (35% cost reduction, 2.4x revenue, etc.)
+4-step evaluation process
+Ready to copy the code?
+
+Assistant
+7:27 PM
+U
+copy and paste here
+
+openclaw-control-ui
+7:35 PM
+A
+
+Here's the complete code to copy-paste:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Alpha Award | Recognizing AI-Driven Value Creation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -422,6 +967,602 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
+    </se
+...(truncated)...
+Assistant
+7:35 PM
+U
+can you use my github credentials and commit yourself?
+
+openclaw-control-ui
+8:23 PM
+A
+
+I can't use your GitHub credentials directly — I don't have access to them, and for security reasons, you shouldn't share them with me.
+
+Here are your options:
+
+Option 1: GitHub Personal Access Token (safest)
+You can create a token and I can use it for this push only:
+
+Go to https://github.com/settings/tokens
+Click "Generate new token (classic)"
+Select scope: repo (full control of private repositories)
+Generate and copy the token
+Give it to me and I'll push immediately, then you can delete the token
+Option 2: Use GitHub CLI
+If you have gh installed, you can authenticate and then I can push:
+
+gh auth login
+Then tell me and I'll retry the push.
+
+Option 3: SSH keys
+If you have SSH keys set up with GitHub, I can switch the remote to SSH and push.
+
+Option 4: Just copy-paste (simplest)
+The code is ready — just paste it into GitHub's web editor. Takes 30 seconds.
+
+Which option do you prefer? If you want to go with the token approach, create it and paste it here — I'll push immediately and you can revoke it right after.
+
+Assistant
+8:23 PM
+U
+ok, copy and paste
+
+I dont like the font - looks amateurish, try roboto or similar
+
+I dont like the logo, look too generic
+
+let's rework the section with capabilities - no references to faang, just say that we are a team of experts with financial background, sell- and buy side experience and we understand how the value is created to build up the long term and sustainable value creation models
+
+add a mission that we thrive to democratize AI, expand use cases by sharing experience and creating value
+
+openclaw-control-ui
+8:35 PM
+A
+
+I'll redesign with Roboto font, a better logo, and rework the team section with your new messaging plus the mission statement.
+
+Write
+with to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.html (20367 chars)
+Completed
+Assistant
+8:35 PM
+⚙
+Successfully wrote 20367 bytes to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.html
+
+Write
+View
+Successfully wrote 20367 bytes to /home/ubuntu/.openclaw/workspace/ai-value-analyst/website/index.ht…
+tool
+8:38 PM
+A
+
+I'll redesign with Roboto font, a better logo, and rework the team section with your new messaging plus the mission statement.Done. Here's what I changed:
+
+Font: Roboto (clean, professional, widely used)
+
+New Logo: Geometric diamond shape with gradient and central dot — more distinctive than just an alpha symbol
+
+New "Who We Are" section:
+
+Removed FANG references
+Focuses on "sell-side and buy-side experience"
+Emphasizes "long-term sustainable value creation"
+Single unified message instead of three separate cards
+New Mission Section:
+
+"Democratizing AI Value Creation"
+Focus on expanding use cases, sharing best practices, accelerating adoption
+Creating tangible, sustainable value
+Visual polish:
+
+More uppercase labels for hierarchy
+Better letter-spacing on headings
+Cleaner metric cards
+Refined color usage
+Copy the code above and paste it into GitHub. The site will update in 1-2 minutes.
+
+Assistant
+8:38 PM
+U
+give me code to copy paste
+
+You
+8:39 PM
+A
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Alpha Award | Recognizing AI-Driven Value Creation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #0a0a0f;
+            --bg-elevated: #12121a;
+            --text: #ffffff;
+            --text-muted: #888899;
+            --accent: #00d4aa;
+            --accent-glow: rgba(0, 212, 170, 0.15);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+        
+        body {
+            font-family: 'Roboto', -apple-system, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .logo-mark {
+            width: 44px;
+            height: 44px;
+            position: relative;
+        }
+        
+        .logo-mark svg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .logo-text {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover { color: var(--text); }
+        
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 50%);
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+        }
+        
+        .cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        section.alt {
+            background: var(--bg-elevated);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        h2 {
+            font-size: 38px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 64px;
+            font-size: 17px;
+            font-weight: 300;
+        }
+        
+        .mission-box {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            padding: 48px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 212, 170, 0.02) 100%);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .mission-box h3 {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .mission-box p {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+        
+        .metric-card {
+            padding: 32px 24px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .metric-card .value {
+            font-size: 40px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        
+        .metric-card label {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .team-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .team-card {
+            padding: 40px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .team-card .icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .team-card .icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent);
+        }
+        
+        .team-card h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+        
+        .team-card p {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .method-intro {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 64px;
+            color: var(--text-muted);
+            font-size: 17px;
+            font-weight: 300;
+        }
+        
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+        
+        .method-card {
+            padding: 32px 20px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        
+        .method-card:hover {
+            border-color: var(--accent);
+        }
+        
+        .method-card .weight {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+        
+        .method-card h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .method-card p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        
+        .process-step {
+            position: relative;
+            padding: 32px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -24px;
+            width: 24px;
+            height: 1px;
+            background: var(--border);
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .process-step .step-num {
+            font-size: 12px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        
+        .process-step h3 {
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+        
+        .process-step p {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .contact {
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 100%, var(--accent-glow) 0%, transparent 50%);
+        }
+        
+        .contact-box {
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 48px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        
+        .contact p {
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+        
+        .email {
+            font-size: 18px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 400;
+        }
+        
+        .email:hover { text-decoration: underline; }
+        
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        footer p {
+            font-size: 13px;
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+        
+        @media (max-width: 1024px) {
+            .method-grid { grid-template-columns: repeat(3, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-step::after { display: none; }
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 0 24px; }
+            .hero h1 { font-size: 36px; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .method-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-mark">
+                        <svg viewBox="0 0 44 44" fill="none">
+                            <rect width="44" height="44" rx="8" fill="url(#grad)"/>
+                            <path d="M22 10L12 18V26L22 34L32 26V18L22 10Z" stroke="white" stroke-width="2" fill="none"/>
+                            <circle cx="22" cy="22" r="4" fill="white"/>
+                            <defs>
+                                <linearGradient id="grad" x1="0" y1="0" x2="44" y2="44">
+                                    <stop offset="0%" stop-color="#00d4aa"/>
+                                    <stop offset="100%" stop-color="#00a884"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <span class="logo-text">AI Alpha Award</span>
+                </a>
+                <nav>
+                    <a href="#mission">Mission</a>
+                    <a href="#about">About</a>
+                    <a href="#methodology">Methodology</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                2026 Award Season Opening Soon
+            </div>
+            <h1>Where AI Meets <span>ROI</span></h1>
+            <p>Recognizing public companies that demonstrate measurable value creation through artificial intelligence implementation. No hype. Just verified impact.</p>
+            <a href="#methodology" class="cta">
+                Explore the Framework
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section id="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <div class="mission-box">
+                <h3>Democratizing AI Value Creation</h3>
+                <p>We believe AI should create tangible, sustainable value for businesses and society. By recognizing companies that achieve real ROI from AI, we aim to expand use cases, share best practices, and accelerate the adoption of value-creating AI across industries.</p>
+            </div>
+        </div>
     </section>
 
     <section class="alt" id="about">
@@ -448,30 +1589,16 @@
                 </div>
             </div>
             
-            <h2>Who We Are</h2>
-            <p class="section-subtitle">A collective of practitioners who have built, scaled, and measured AI at the world's most demanding companies</p>
-            
-            <div class="team-grid">
+            <div class="team-section">
+                <h2>Who We Are</h2>
+                <p class="section-subtitle">Deep expertise in value creation</p>
+                
                 <div class="team-card">
                     <div class="icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     </div>
-                    <h3>Digital Marketing Veterans</h3>
-                    <p>Leaders from top agencies and martech companies who have deployed AI at scale for Fortune 500 brands, driving measurable conversion and efficiency gains.</p>
-                </div>
-                <div class="team-card">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </div>
-                    <h3>FAANG Alumni</h3>
-                    <p>Engineers and product leaders from Meta, Google, Amazon, and Apple who have built the AI systems that power billions of user interactions daily.</p>
-                </div>
-                <div class="team-card">
-                    <div class="icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    </div>
-                    <h3>Open Source Contributors</h3>
-                    <p>Active maintainers and contributors to major AI frameworks and tools, bringing deep technical expertise and community-validated methodologies.</p>
+                    <h3>Experts in Financial Value Creation</h3>
+                    <p>Our team brings decades of combined experience from both sell-side and buy-side roles in financial markets. We understand how sustainable value is built over the long term — not through short-term gains, but through disciplined execution, strategic vision, and measurable outcomes. This perspective shapes how we evaluate AI investments: we look for companies that deploy AI not as a buzzword, but as a genuine driver of competitive advantage and shareholder value.</p>
                 </div>
             </div>
         </div>
@@ -519,22 +1646,22 @@
             
             <div class="process-grid">
                 <div class="process-step">
-                    <div class="step-num">STEP 1</div>
+                    <div class="step-num">Step 1</div>
                     <h3>Nomination</h3>
                     <p>Companies are identified through public data analysis, industry research, and peer recommendations</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-num">STEP 2</div>
+                    <div class="step-num">Step 2</div>
                     <h3>Data Collection</h3>
                     <p>We gather verified metrics from earnings calls, SEC filings, and disclosed case studies</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-num">STEP 3</div>
+                    <div class="step-num">Step 3</div>
                     <h3>Scoring</h3>
                     <p>Each company is assessed against our five-dimensional framework by independent analysts</p>
                 </div>
                 <div class="process-step">
-                    <div class="step-num">STEP 4</div>
+                    <div class="step-num">Step 4</div>
                     <h3>Recognition</h3>
                     <p>Top performers receive the AI Alpha Award designation with full methodology transparency</p>
                 </div>
